@@ -58,7 +58,7 @@ class ApexClass(models.Model):
     """
 
     job = models.ForeignKey(
-    job,
+    'Categorie',
     on_delete=models.CASCADE,
 )
 
