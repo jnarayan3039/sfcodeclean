@@ -5,7 +5,7 @@ celery
 certifi
 chardet
 dj-database-url
-Django
+Django==2.2.28
 django-widget-tweaks
 gunicorn
 idna
