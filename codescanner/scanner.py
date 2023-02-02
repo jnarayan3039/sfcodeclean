@@ -368,7 +368,7 @@ class ScanJob(object):
                             # Now process the variables
                             for variable in external_reference.get('variables', []):
 
-                                print variable
+                                print(variable)
 
                                 variable_references = {}
                                 
