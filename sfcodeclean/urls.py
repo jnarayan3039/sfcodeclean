@@ -20,20 +20,20 @@ from django.views.generic import TemplateView, RedirectView
 from codescanner import views
 
 urlpatterns = [
-    path(r'^admin/', admin.site.urls),
+    re_path(r'^admin/', admin.site.urls),
 
-    path(r'^$', views.IndexView.as_view(), name='index'),
-    path(r'^auth/callback/$', views.AuthCallbackView.as_view(), name='auth-callback'),
-    path(r'^logout/$', TemplateView.as_view(template_name="logout.html"), name='logout'),
+    re_path(r'^$', views.IndexView.as_view(), name='index'),
+    re_path(r'^auth/callback/$', views.AuthCallbackView.as_view(), name='auth-callback'),
+    re_path(r'^logout/$', TemplateView.as_view(template_name="logout.html"), name='logout'),
 
-    path(r'^job/scanning/(?P<slug>[-\w]+)/$', views.JobProcessingView.as_view(), name='job-scanning'),
-    path(r'^job/status/(?P<slug>[-\w]+)/$', views.JobStatusView.as_view(), name='job-status'),
-    path(r'^job/json/(?P<slug>[-\w]+)/$', views.JobJsonView.as_view(), name='job-json'),
-    path(r'^job/(?P<slug>[-\w]+)/$', views.JobView.as_view(), name='job'),
+    re_path(r'^job/scanning/(?P<slug>[-\w]+)/$', views.JobProcessingView.as_view(), name='job-scanning'),
+    re_path(r'^job/status/(?P<slug>[-\w]+)/$', views.JobStatusView.as_view(), name='job-status'),
+    re_path(r'^job/json/(?P<slug>[-\w]+)/$', views.JobJsonView.as_view(), name='job-json'),
+    re_path(r'^job/(?P<slug>[-\w]+)/$', views.JobView.as_view(), name='job'),
 
-    path(r'^apexclass/(?P<pk>\d+)/$', views.ApexClassBodyView.as_view(), name='apex-class-body'),
+    re_path(r'^apexclass/(?P<pk>\d+)/$', views.ApexClassBodyView.as_view(), name='apex-class-body'),
 
-    path(r'^api/job/$', views.ApiJobCreateView.as_view(), name='api-job-create'),
-    path(r'^api/job/status/(?P<slug>[-\w]+)/$', views.JobStatusView.as_view(), name='api-job-status'),
-    path(r'^api/job/(?P<slug>[-\w]+)/$', views.JobJsonView.as_view(), name='api-job-json'),
+    re_path(r'^api/job/$', views.ApiJobCreateView.as_view(), name='api-job-create'),
+    re_path(r'^api/job/status/(?P<slug>[-\w]+)/$', views.JobStatusView.as_view(), name='api-job-status'),
+    re_path(r'^api/job/(?P<slug>[-\w]+)/$', views.JobJsonView.as_view(), name='api-job-json'),
 ]
