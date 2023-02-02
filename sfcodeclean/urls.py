@@ -13,27 +13,27 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import re_path
+from django.urls import include, re_path
 from django.contrib import admin
 from django.views.generic import TemplateView, RedirectView
 
 from codescanner import views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    path(r'^admin/', admin.site.urls),
 
-    url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^auth/callback/$', views.AuthCallbackView.as_view(), name='auth-callback'),
-    url(r'^logout/$', TemplateView.as_view(template_name="logout.html"), name='logout'),
+    path(r'^$', views.IndexView.as_view(), name='index'),
+    path(r'^auth/callback/$', views.AuthCallbackView.as_view(), name='auth-callback'),
+    path(r'^logout/$', TemplateView.as_view(template_name="logout.html"), name='logout'),
 
-    url(r'^job/scanning/(?P<slug>[-\w]+)/$', views.JobProcessingView.as_view(), name='job-scanning'),
-    url(r'^job/status/(?P<slug>[-\w]+)/$', views.JobStatusView.as_view(), name='job-status'),
-    url(r'^job/json/(?P<slug>[-\w]+)/$', views.JobJsonView.as_view(), name='job-json'),
-    url(r'^job/(?P<slug>[-\w]+)/$', views.JobView.as_view(), name='job'),
+    path(r'^job/scanning/(?P<slug>[-\w]+)/$', views.JobProcessingView.as_view(), name='job-scanning'),
+    path(r'^job/status/(?P<slug>[-\w]+)/$', views.JobStatusView.as_view(), name='job-status'),
+    path(r'^job/json/(?P<slug>[-\w]+)/$', views.JobJsonView.as_view(), name='job-json'),
+    path(r'^job/(?P<slug>[-\w]+)/$', views.JobView.as_view(), name='job'),
 
-    url(r'^apexclass/(?P<pk>\d+)/$', views.ApexClassBodyView.as_view(), name='apex-class-body'),
+    path(r'^apexclass/(?P<pk>\d+)/$', views.ApexClassBodyView.as_view(), name='apex-class-body'),
 
-    url(r'^api/job/$', views.ApiJobCreateView.as_view(), name='api-job-create'),
-    url(r'^api/job/status/(?P<slug>[-\w]+)/$', views.JobStatusView.as_view(), name='api-job-status'),
-    url(r'^api/job/(?P<slug>[-\w]+)/$', views.JobJsonView.as_view(), name='api-job-json'),
+    path(r'^api/job/$', views.ApiJobCreateView.as_view(), name='api-job-create'),
+    path(r'^api/job/status/(?P<slug>[-\w]+)/$', views.JobStatusView.as_view(), name='api-job-status'),
+    path(r'^api/job/(?P<slug>[-\w]+)/$', views.JobJsonView.as_view(), name='api-job-json'),
 ]
