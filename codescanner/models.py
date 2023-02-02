@@ -75,7 +75,7 @@ class ApexClass(models.Model):
     referenced_by_json = models.TextField(blank=True, null=True)
 
     class Meta:
-        ordering = ['name']
+        ordering = [name]
 
     def __unicode__(self):
         return self.name
