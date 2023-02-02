@@ -385,7 +385,7 @@ class ScanJob(object):
 
                                 variable_references[apex_class.name] = lines
 
-                                print variable_references
+                                print(variable_references)
 
                                 # Add back to the object map
                                 reference_object['variables'][variable.get('name')] = variable_references
