@@ -83,7 +83,10 @@ class ApexPageComponent(models.Model):
     Hold details about an ApexPage
     """
 
-    job = models.ForeignKey(Job)
+    job = models.ForeignKey(
+    job,
+    on_delete=models.CASCADE,
+)
 
     sf_id = models.CharField(max_length=18)
     name = models.CharField(max_length=120)
