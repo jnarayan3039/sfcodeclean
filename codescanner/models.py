@@ -57,7 +57,10 @@ class ApexClass(models.Model):
     Holds all details about an ApexClass
     """
 
-    job = models.ForeignKey(Job)
+    job = models.ForeignKey(
+    job,
+    on_delete=models.CASCADE,
+)
 
     class_id = models.CharField(max_length=18)
     class_member_id = models.CharField(max_length=18, blank=True, null=True)
