@@ -280,7 +280,7 @@ class ApiJobCreateView(View):
 
                 user = utils.get_user_with_no_id(instance_url, access_token)
 
-                print user
+                print(user)
 
                 # If response is a list, there's an error
                 # Not a great approahc, but the API returns a list when an error and a single object whe not
