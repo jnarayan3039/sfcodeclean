@@ -5,8 +5,8 @@ celery
 certifi
 chardet
 dj-database-url
-Django
-django-widget-tweaks
+Django==1.11.7
+django-widget-tweaks==1.4.1
 gunicorn
 idna
 kombu
