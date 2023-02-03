@@ -91,8 +91,6 @@ class AuthCallbackView(CreateView):
         oauth_code = self.request.GET.get('code')
         org_type = self.request.GET.get('state')
         org_type='Production'
-        if org_type == '' 
-            org_type='Production'
         url = self._get_token_url(org_type)
         data = self._get_data_payload(oauth_code)
 
