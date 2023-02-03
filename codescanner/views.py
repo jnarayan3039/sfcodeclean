@@ -39,6 +39,8 @@ class IndexView(FormView):
         sub_domain = utils.get_subdomain(environment)
         url = 'https://%s.salesforce.com/services/oauth2/authorize?response_type=code&client_id=%s&redirect_uri=%s&state=%s' % (
             sub_domain, settings.SALESFORCE_CONSUMER_KEY, urllib.parse.quote_plus(settings.SALESFORCE_REDIRECT_URI),environment)
+#         url = 'https://%s.salesforce.com/services/oauth2/authorize?response_type=code&client_id=%s&redirect_uri=%s' % (
+#             sub_domain, settings.SALESFORCE_CONSUMER_KEY, urllib.parse.quote_plus(settings.SALESFORCE_REDIRECT_URI))
         return url
 
     def get_success_url(self):
@@ -88,7 +90,9 @@ class AuthCallbackView(CreateView):
         # Get the oauth values
         oauth_code = self.request.GET.get('code')
         org_type = self.request.GET.get('state')
-
+        org_type='Production'
+        if org_type == '' 
+            org_type='Production'
         url = self._get_token_url(org_type)
         data = self._get_data_payload(oauth_code)
 
