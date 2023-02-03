@@ -89,19 +89,21 @@ class AuthCallbackView(CreateView):
         """
         Load initial values for the form
         """
-        
+        print('Inside get initial')
         # Get the oauth values
         oauth_code = self.request.GET.get('code')
+        print('Oauth code  %s',oauth_code)
         org_type = self.request.GET.get('state')
         org_type='Production'
         url = self._get_token_url(org_type)
+        print('token url %s',url)
         data = self._get_data_payload(oauth_code)
         print(data)
-        print('token url %s',url)
-        print('Oauth code  %s',oauth_code)
+        
+       
         # Attempt the login
         response = requests.post(url, headers={'Content-Type':'application/x-www-form-urlencoded'}, data=data)
-
+        print('Inside get initial %s', response)
         # Load json to python dict
         response = response.json()
 
