@@ -30,7 +30,7 @@ def get_user(instance_url, access_token, user_id):
     """
 
     # Build the URL
-    url = '%s%ssobjects/User/%s' % (instance_url, settings.SALESFORCE_REST_URL, user_id)
+    url = '%s%ssobjects/User/%s' % (instance_url, REST_URL, user_id)
     print(url)
     # Query for the user record
     result = requests.get(url, headers=get_headers(access_token))
