@@ -3,7 +3,7 @@ from django.core.mail import send_mail
 
 import requests
 
-REST_URL = '/services/data/%d.0/' % settings.SALESFORCE_API_VERSION
+REST_URL = '/services/data/v%d.0/' % settings.SALESFORCE_API_VERSION
 TOOLING_URL = '%s/tooling/' % REST_URL
 
 
