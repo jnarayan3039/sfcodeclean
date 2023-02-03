@@ -96,7 +96,9 @@ class AuthCallbackView(CreateView):
         org_type='Production'
         url = self._get_token_url(org_type)
         data = self._get_data_payload(oauth_code)
-
+        print(data)
+        print('token url %s',url)
+         print('Oauth code  %s',oauth_code)
         # Attempt the login
         response = requests.post(url, headers={'Content-Type':'application/x-www-form-urlencoded'}, data=data)
 
