@@ -68,6 +68,7 @@ class AuthCallbackView(CreateView):
         """
         sub_domain = utils.get_subdomain(org_type)
         url = 'https://%s.salesforce.com/services/oauth2/token' % sub_domain
+        print(url)
         return url
 
 
