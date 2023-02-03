@@ -56,7 +56,7 @@ class AuthCallbackView(CreateView):
     """
     Handle the OAuth callback from Salesforce
     """
-
+    print('Inside Auth Call back')
     fields = ['org_id','access_token','instance_url','username','email','email_result','error']
     model = models.Job
     template_name = 'callback.html'
