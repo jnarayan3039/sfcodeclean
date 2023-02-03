@@ -248,7 +248,7 @@ class ApiJobCreateView(View):
     """
     Start a job via API
     """
-
+    print('Inside Api Job Create')
     def get(self, request, *args, **kwargs):
         return HttpResponse('GET method not supported', status=405) 
 
@@ -257,6 +257,7 @@ class ApiJobCreateView(View):
         """
         Receive the POST parameters
         """
+        print('Inside Post Method')
         try:
 
             # Load the Json request
@@ -264,7 +265,8 @@ class ApiJobCreateView(View):
 
             instance_url = json_body.get('instanceUrl')
             access_token = json_body.get('accessToken')
-
+            print(instance_url)
+            print(access_token)
             if not instance_url:
                 return JsonResponse(
                     {
