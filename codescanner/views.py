@@ -41,6 +41,8 @@ class IndexView(FormView):
 #             sub_domain, settings.SALESFORCE_CONSUMER_KEY, urllib.parse.quote_plus(settings.SALESFORCE_REDIRECT_URI),environment)
         url = 'https://%s.salesforce.com/services/oauth2/authorize?response_type=code&client_id=%s&redirect_uri=%s' % (
             sub_domain, settings.SALESFORCE_CONSUMER_KEY, urllib.parse.quote_plus(settings.SALESFORCE_REDIRECT_URI))
+        print(url)
+        print(environment)
         return url
 
     def get_success_url(self):
